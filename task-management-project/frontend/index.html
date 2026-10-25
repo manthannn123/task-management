@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple task manager for learning Docker and CI/CD.">
+  <title>TaskFlow | Task Manager</title>
+  <link rel="stylesheet" href="D:\cloud\transit_project\task-management-project\frontend\styles.css">
+  <script src="D:\cloud\transit_project\task-management-project\frontend\app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar"><a class="brand" href="/"><span class="brand-mark">T</span> TaskFlow</a><span class="workspace-label"><i></i> Personal workspace</span></header>
+  <main>
+    <section class="hero">
+      <div><p class="eyebrow">YOUR WORKSPACE</p><h1>Make progress,<br><span>one task at a time.</span></h1><p class="hero-copy">Keep your next steps clear. Capture tasks, track progress, and celebrate the little wins.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="art-back"></div><div class="art-front"><span>✓</span><div><b>Small steps</b><small>Big progress</small></div></div><em>✦</em></div>
+    </section>
+    <section class="stats">
+      <article><span>All tasks</span><strong id="total-count">0</strong><small>Everything on your list</small></article>
+      <article><span>In progress</span><strong id="progress-count">0</strong><small>Currently being worked on</small></article>
+      <article><span>Completed</span><strong id="completed-count">0</strong><small>Things you've finished</small></article>
+    </section>
+    <section class="workspace">
+      <div class="section-heading"><div><p class="eyebrow">STAY ORGANIZED</p><h2>Your tasks</h2></div><button class="primary" id="show-form-button" type="button">＋ Add task</button></div>
+      <form id="task-form" class="task-form hidden">
+        <div class="form-heading"><h3 id="form-title">Create a task</h3><button type="button" class="icon-button" id="cancel-form-button" aria-label="Close form">×</button></div>
+        <input type="hidden" id="task-id">
+        <label for="title">Task title <b>*</b></label><input id="title" maxlength="200" placeholder="e.g. Learn Docker volumes" required>
+        <label for="description">Description</label><textarea id="description" rows="3" placeholder="What needs to get done?"></textarea>
+        <label for="status">Status</label><select id="status"><option value="pending">Pending</option><option value="in_progress">In progress</option><option value="completed">Completed</option></select>
+        <div class="form-actions"><button type="button" class="secondary" id="cancel-bottom-button">Cancel</button><button class="primary" type="submit" id="save-button">Save task</button></div>
+      </form>
+      <div class="toolbar"><div class="filters" role="group" aria-label="Filter tasks"><button class="filter active" data-filter="all" type="button">All</button><button class="filter" data-filter="pending" type="button">Pending</button><button class="filter" data-filter="in_progress" type="button">In progress</button><button class="filter" data-filter="completed" type="button">Completed</button></div><button class="text-button" id="refresh-button" type="button">↻ Refresh</button></div>
+      <div id="message" class="message hidden" role="status" aria-live="polite"></div>
+      <div id="task-list" class="task-list" aria-live="polite"></div>
+      <div id="empty-state" class="empty hidden"><div class="empty-icon">✓</div><h3>You're all caught up</h3><p>Add a task to get your workspace started.</p><button class="secondary" id="empty-add-button" type="button">Create your first task</button></div>
+    </section>
+  </main>
+  <footer><span>TaskFlow</span><span>Built for learning Docker, AWS &amp; CI/CD</span></footer>
+</div>
+</body>
+</html>
